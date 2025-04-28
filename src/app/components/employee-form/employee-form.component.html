@@ -1,0 +1,30 @@
+<div class="main-container">
+
+  <div class="button-container">
+    <button [routerLink]="['']">EMPLOYEES</button>
+    <button [routerLink]="['/project']">PROJECTS</button>
+  </div>
+
+  <h1>Employees form</h1>
+
+  <form (ngSubmit)="onSubmit()" class="big-container">
+    <div class="option-container">
+      <label for="id">Employee id:</label>
+      <input id="id" type="number" name="id" [(ngModel)]="id">
+    </div>
+    <div class="option-container">
+      <label for="name">Employee name:</label>
+      <input id="name" name="name" [(ngModel)]="name">
+    </div>
+    <div class="option-container">
+      <label for="department">Department:</label>
+      <input id="department" name="department" [(ngModel)]="department">
+    </div>
+      <button type="submit">Add</button>
+  </form>
+  <button (click)="updateEmployee()">Update</button>
+</div>
+
+<div class="cards-container">
+  <app-employee-card *ngFor="let item of employeeList" [id]="item.id" [name]="item.name" [department]="item.department"></app-employee-card>
+</div>
